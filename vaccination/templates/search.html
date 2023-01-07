@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Search for Vaccination Centers</h2>
+<form method="get" action="{% url 'search' %}">
+  <div class="form-group">
+    <label for="location">Location</label>
+    <input type="text" class="form-control" id="location" name="location" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+{% if centers %}
+<table class="table mt-4">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Availability</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for center in centers %}
+    <tr>
+      <td>{{ center.name }}</td>
+      <td>{{ center.location }}</td>
+      <td>{% if center.availability > 0 %}Yes{% else %}No{% endif %}</td>
+      <td>
+        {% if center.availability > 0 %}
+        <a href="{% url 'apply' %}?center={{ center.id }}" class="btn btn-primary">Apply</a>
+        {% else %}
+        <button disabled class="btn btn-secondary">Apply</button>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock %}
+
+

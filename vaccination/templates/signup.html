@@ -1,0 +1,36 @@
+<!-- signup.html -->
+
+
+<!-- signup.html -->
+
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Signup</h2>
+<form method="post" action="{% url 'signup' %}">
+  {% csrf_token %}
+  {% if message %}
+  <div class="alert alert-danger">{{ message }}</div>
+  {% endif %}
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" name="password" required>
+  </div>
+  <div class="form-group">
+    <label for="password_confirm">Confirm Password</label>
+    <input type="password" class="form-control" id="password_confirm" name="password_confirm" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Signup</button>
+</form>
+
+
+{% endblock %}
+
+
+
+
+
+

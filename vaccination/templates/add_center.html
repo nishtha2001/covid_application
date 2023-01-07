@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Add Vaccination Center</h2>
+<form method="post" action="{% url 'add_center' %}">
+  {% csrf_token %}
+  {% if message %}
+  <div class="alert alert-danger">{{ message }}</div>
+  {% endif %}
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" required>
+  </div>
+  <div class="form-group">
+    <label for="location">Location</label>
+    <input type="text" class="form-control" id="location" name="location" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>
+{% endblock %}
+

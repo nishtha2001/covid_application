@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Remove Vaccination Center</h2>
+{% if centers %}
+<form method="post" action="{% url 'remove_center' %}">
+  {% csrf_token %}
+  {% if message %}
+  <div class="alert alert-danger">{{ message }}</div>
+  {% endif %}
+  <div class="form-group">
+    <label for="center">Center</label>
+    <select class="form-control" id="center" name="center" required>
+      {% for center in centers %}
+      <option value="{{ center.id }}">{{ center.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Remove</button>
+</form>
+{% else %}
+<div class="alert alert-danger">No centers found</div>
+{% endif %}
+{% endblock %}
