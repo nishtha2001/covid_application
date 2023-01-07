@@ -1,5 +1,5 @@
 Tech Stack:
-Front-end : html,css,bootstrap
+Front-end : html,css,bootstrap <br>
 Back-end : Django
 
 Types of Users:
