@@ -1,3 +1,25 @@
+Tech Stack:
+Front-end : html,css,bootstrap
+Back-end : Django
+
+Types of Users:
+User
+Admin
+
+User Use cases:
+- login
+- signup
+- search for Vaccination centre
+- apply for vaccination 
+- logout
+
+Admin Use Cases
+- login (for admin use separate UI)
+- Add Vaccination centres
+- Get dosage details (group by centres)
+- Remove vaccination centres
+
+
 To create a web application for COVID vaccination, you can follow the steps below:
 
 ->>> Create a Django project and app:
